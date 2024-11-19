@@ -80,7 +80,7 @@ def restoreFileTimeData(filepath, accessedTime, modifiedTime):
 	os.utime(filepath, (accessedTime, modifiedTime))
 
 def filenameFriendly(string):
-	return string.replace("/","-").replace(":","-").replace("\"","").replace("?","")
+	return string.replace("/","--").replace("\\","-").replace(":","-").replace("\"","").replace("?","")
 
 def xmlify(text):
 	return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("'", "&apos;").replace("\"", "&quot;")
@@ -311,3 +311,6 @@ def listToStringComma(theList):
 			return ""
 	else:
 		return str(theList)
+
+def makeUniqueFilename():
+	return "file"+strftime("%Y-%m-%d %H-%M-%S")
